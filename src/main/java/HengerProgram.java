@@ -33,14 +33,25 @@ public class HengerProgram {
         for (Henger henger : hengerek) {
             System.out.println(henger);
         }
+        System.out.printf("Hengerek átlag térfogata (%d db): %f\n" , db, atlagTerfogat());
+        System.out.printf("Csövek súlya (%d db): %f", db, csovekSulya());
+        System.out.println("\nÖssz darab: " + Henger.getHengerDarab());
     }
 
     public double atlagTerfogat() {
+        int db  = Henger.getHengerDarab();
+        double osszV = 0;
         return 0;
     }
 
     public double csovekSulya() {
-        return 0;
+        double osszS = 0;
+        for (Henger henger : hengerek) {
+            if (henger instanceof Cso) {
+                osszS += ((Cso)henger).suly();
+            }
+        }
+        return osszS;
     }
 
     private List<Henger> lista() {
